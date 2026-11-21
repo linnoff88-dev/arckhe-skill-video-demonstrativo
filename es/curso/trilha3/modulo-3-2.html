@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.2 — Narración local y composición | Video demostrativo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: {
+        primary: '#FACC15',
+        dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+      } } }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-200 { color: #1f2937; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124,58,237,0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    @keyframes m32-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @keyframes m32-flow { 0%,100% { stroke-dashoffset: 0; } 50% { stroke-dashoffset: 16; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .m32-pulse { animation: m32-pulse 2.6s ease-in-out infinite; }
+      .m32-pulse:nth-child(2){animation-delay:.3s} .m32-pulse:nth-child(3){animation-delay:.6s} .m32-pulse:nth-child(4){animation-delay:.9s}
+      .m32-flow { animation: m32-flow 3s linear infinite; stroke-dasharray: 8 8; }
+    }
+  </style>
+<link href="https://inematds.github.io/skill-video-demonstrativo/curso/trilha3/modulo-3-2.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/skill-video-demonstrativo/en/curso/trilha3/modulo-3-2.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/skill-video-demonstrativo/es/curso/trilha3/modulo-3-2.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-2.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-2.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-2.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🖱️</span><span class="font-bold text-lg hidden sm:inline">Demostrativo</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Captura</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Render</span></a>
+<button aria-label="Cambiar tema" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="w-4 h-4 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="w-4 h-4 text-neutral-300 hidden" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-500">
+<a class="hover:text-purple-400 transition-colors" href="../../index.html">Inicio</a>
+<span>/</span>
+<a class="hover:text-purple-400 transition-colors" href="index.html">Pista 3 — Composición &amp; Render</a>
+<span>/</span>
+<span class="text-purple-400 font-medium">Módulo 3.2</span>
+</nav>
+</div>
+<!-- HEADER -->
+<header class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid lg:grid-cols-2 gap-8 items-center">
+<div>
+<div class="inline-flex items-center space-x-2 bg-purple-500/20 border border-purple-500/30 rounded-full px-4 py-1.5 mb-4">
+<span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">MÓDULO 3.2</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-extrabold text-neutral-100 mb-3 leading-tight">
+          🔊 Narración local y composición
+        </h1>
+<p class="text-neutral-400 text-lg mb-6">
+          La voz y el montaje: TTS local gratuito de Kokoro, generación de los WAV a partir del <code class="bg-dark-700 text-purple-400 px-1.5 py-0.5 rounded text-sm font-mono">steps.json</code>, medición automática de las duraciones y el <code class="bg-dark-700 text-purple-400 px-1.5 py-0.5 rounded text-sm font-mono">build-demo.mjs</code> que sincroniza el audio y la animación con el mismo array de tiempos.
+        </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-3 text-center"><div class="text-2xl font-bold text-purple-400">7</div><div class="text-xs text-neutral-500 mt-1">Temas</div></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-3 text-center"><div class="text-2xl font-bold text-purple-400">30</div><div class="text-xs text-neutral-500 mt-1">Minutos</div></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-3 text-center"><div class="text-2xl font-bold text-purple-400">Avanzado</div><div class="text-xs text-neutral-500 mt-1">Nivel</div></div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-3 text-center"><div class="text-2xl font-bold text-purple-400">Lectura</div><div class="text-xs text-neutral-500 mt-1">Tipo</div></div>
+</div>
+</div>
+<!-- SVG futurista: steps.json -> TTS -> WAVs -> ffprobe -> AUDIO[] -> S[] -->
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4">
+<svg aria-label="Diagrama del flujo de narración: steps punto json se convierte en textos, Kokoro genera WAVs, ffprobe mide las duraciones en el array AUDIO, y de ahí sale el array S de tiempos que sincroniza el audio y la animación" class="w-full h-auto" role="img" viewbox="0 0 420 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="m32-bg" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#1a1230"></stop><stop offset="100%" stop-color="#0e1b26"></stop></lineargradient>
+<lineargradient id="m32-purple" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#c084fc"></stop><stop offset="100%" stop-color="#a855f7"></stop></lineargradient>
+<lineargradient id="m32-cyan" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#38bdf8"></stop><stop offset="100%" stop-color="#06b6d4"></stop></lineargradient>
+<filter height="160%" id="m32-glow" width="160%" x="-30%" y="-30%"><fegaussianblur result="blur" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="blur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="28" id="m32-dots" patternunits="userSpaceOnUse" width="28"><circle cx="1.2" cy="1.2" fill="#a855f7" opacity="0.1" r="1.2"></circle></pattern>
+<marker id="m32-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m32-bg)" height="300" rx="12" width="420"></rect>
+<rect fill="url(#m32-dots)" height="300" rx="12" width="420"></rect>
+<circle class="m32-pulse" cx="20" cy="20" fill="#c084fc" opacity="0.6" r="2.5"></circle>
+<circle class="m32-pulse" cx="400" cy="20" fill="#38bdf8" opacity="0.6" r="2.5"></circle>
+<circle class="m32-pulse" cx="20" cy="280" fill="#38bdf8" opacity="0.6" r="2.5"></circle>
+<circle class="m32-pulse" cx="400" cy="280" fill="#c084fc" opacity="0.6" r="2.5"></circle>
+<!-- steps.json -->
+<rect fill="#1a1230" filter="url(#m32-glow)" height="40" rx="8" stroke="#38bdf8" stroke-width="1.6" width="150" x="30" y="34"></rect>
+<text fill="#38bdf8" font-family="Inter,sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="105" y="52">steps.json</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="105" y="66">narration + ctaNarration</text>
+<path class="m32-flow" d="M105,74 L105,92" fill="none" marker-end="url(#m32-ah)" stroke="#38bdf8" stroke-width="1.6"></path>
+<!-- txt + TTS -->
+<rect fill="#1a1230" filter="url(#m32-glow)" height="40" rx="8" stroke="#a855f7" stroke-width="1.6" width="150" x="30" y="94"></rect>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="105" y="112">Kokoro TTS pf_dora</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="105" y="126">txt/sN.txt → audio/sN.wav</text>
+<path class="m32-flow" d="M105,134 L105,152" fill="none" marker-end="url(#m32-ah)" stroke="#38bdf8" stroke-width="1.6"></path>
+<!-- ffprobe -->
+<rect fill="#0e1b26" filter="url(#m32-glow)" height="40" rx="8" stroke="#38bdf8" stroke-width="1.6" width="150" x="30" y="154"></rect>
+<text fill="#38bdf8" font-family="Inter,sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="105" y="172">ffprobe mide WAVs</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="105" y="186">duraciones reales</text>
+<!-- AUDIO[] -> S[] painel direito -->
+<rect fill="#1a1230" filter="url(#m32-glow)" height="100" rx="10" stroke="#a855f7" stroke-width="1.6" width="180" x="210" y="94"></rect>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="11" font-weight="800" text-anchor="middle" x="300" y="114">AUDIO[] → S[]</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="300" y="132">LEAD 0.5 · TAIL 0.7 · FADE 0.4</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="300" y="150">inicio · dur · audioStart · final</text>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="300" y="170">timeline GSAP + pistas de audio</text>
+<text fill="#9ca3af" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="300" y="186">leen el MISMO S[]</text>
+<path class="m32-flow" d="M180,174 Q200,150 210,140" fill="none" marker-end="url(#m32-ah)" stroke="#38bdf8" stroke-dasharray="5 4" stroke-width="1.6"></path>
+<!-- saída: index.html sincronizado -->
+<rect fill="#0d1321" filter="url(#m32-glow)" height="42" rx="10" stroke="#FFC300" stroke-width="1.8" width="180" x="120" y="232"></rect>
+<text fill="#FFC300" font-family="Inter,sans-serif" font-size="11" font-weight="800" text-anchor="middle" x="210" y="250">index.html</text>
+<text fill="#F0EBD8" font-family="Inter,sans-serif" font-size="8" text-anchor="middle" x="210" y="265">audio ↔ animación sincronizados + CTA</text>
+<path class="m32-flow" d="M105,194 Q105,232 160,232" fill="none" stroke="#FFC300" stroke-dasharray="5 4" stroke-width="1.4"></path>
+<path class="m32-flow" d="M300,194 Q300,232 260,232" fill="none" stroke="#FFC300" stroke-dasharray="5 4" stroke-width="1.4"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- MAIN -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-10">
+<!-- TÓPICO 1 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-1">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">1</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">🎙️ TTS Kokoro local (voz pf_dora)</h2>
+<p class="text-neutral-400 mt-1">Narración en PT-BR generada 100% en la máquina, gratuita y sin clave de API — lo que mantiene la skill autocontenida.</p>
+</div>
+</div>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-5 mb-5">
+<div class="flex items-center space-x-2 mb-2"><span class="text-purple-400 text-lg">💡</span><span class="text-purple-400 font-semibold text-sm uppercase tracking-wide">Concepto principal</span></div>
+<p class="text-neutral-200 text-sm leading-relaxed">Kokoro es un TTS ONNX que se ejecuta localmente (<code class="text-purple-400 font-mono">pip install kokoro-onnx soundfile</code>), con la voz <code class="text-purple-400 font-mono">pf_dora</code> (PT-BR) y <code class="text-purple-400 font-mono">--speed 0.98</code>. La primera ejecución descarga ~340MB del modelo; después funciona sin conexión. No necesitas ninguna clave de API ni pagas por minuto.</p>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">generación de un WAV</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code>npx -y hyperframes tts "assets/txt/s1.txt" \
+  --voice <span class="text-cyan-400">pf_dora</span> \
+  --speed <span class="text-purple-400">0.98</span> \
+  --output "assets/audio/s1.wav"</code></pre>
+</div>
+<div class="bg-primary/10 border border-primary/40 rounded-xl p-4 mb-5">
+<div class="flex items-start space-x-3"><span class="text-primary text-lg flex-shrink-0">⚡</span><div>
+<div class="text-primary font-semibold text-sm mb-1">Desarrolla los números y las siglas en la narración</div>
+<p class="text-neutral-300 text-sm">"512" → "quinientos doce"; "URL" → deletrea; "inema.club" → "inema punto club". El TTS lee literalmente: escribirlo con palabras evita lecturas extrañas.</p>
+</div></div>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="flex items-start space-x-3"><span class="text-red-400 text-lg flex-shrink-0">🚨</span><div>
+<div class="text-red-400 font-semibold text-sm mb-1">No escuchas el audio en el renderizado</div>
+<p class="text-neutral-300 text-sm">La voz suena bien, pero no tiene actuación. Pídele siempre al usuario que valide la locución: él es quien la escucha antes del render final.</p>
+</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-2">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">2</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">📝 Generar los WAV a partir de steps.json</h2>
+<p class="text-neutral-400 mt-1">O <code class="text-purple-400 font-mono">narration-template.sh</code> extrae los diálogos de steps.json y genera un WAV por paso + CTA.</p>
+</div>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">narration-template.sh — fragmento</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code><span class="text-neutral-500"># extrai steps[].narration + ctaNarration -&gt; assets/txt/sN.txt</span>
+node -e '
+const d=JSON.parse(fs.readFileSync("steps.json","utf8"));
+const lines=d.steps.map(s=&gt;s.narration||"");
+lines.push(d.ctaNarration);
+lines.forEach((t,i)=&gt;fs.writeFileSync(`assets/txt/s${i+1}.txt`, t));
+'
+<span class="text-neutral-500"># gera 1 WAV por txt (passos + CTA)</span>
+for i in $(seq 1 "$N"); do
+  npx -y hyperframes tts "assets/txt/s$i.txt" \
+    --voice <span class="text-cyan-400">pf_dora</span> --speed <span class="text-purple-400">0.98</span> \
+    --output "assets/audio/s$i.wav"
+done</code></pre>
+</div>
+<div class="grid sm:grid-cols-2 gap-4 mb-5">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-4">
+<div class="text-emerald-400 font-semibold text-sm mb-3 flex items-center space-x-2"><span>✓</span><span>HACER</span></div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Escribir los diálogos en el propio <code class="font-mono text-emerald-300">steps.json</code></span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Garantizar 1 narración por paso + la <code class="font-mono text-emerald-300">ctaNarration</code></span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Ejecutar en la raíz del proyecto (donde están steps.json y assets/)</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="text-red-400 font-semibold text-sm mb-3 flex items-center space-x-2"><span>✗</span><span>NO HACER</span></div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Mantener el texto de la voz separado del steps.json (genera divergencias)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Olvidar la CTA: es el último WAV</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Numeración incorrecta: los WAV deben ser s1..sN en el orden de los pasos</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-3">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">3</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">📏 Medir la duración real de los WAV</h2>
+<p class="text-neutral-400 mt-1">La sincronización tiene una única fuente: el generador mide cada WAV con <code class="text-purple-400 font-mono">ffprobe</code> — no hay un array de tiempos escrito a mano.</p>
+</div>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">build-demo.mjs — medición automática</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code>const NA = STEPS.length + 1;   <span class="text-neutral-500">// +1 da CTA</span>
+const AUDIO = [];
+for (let i = 1; i &lt;= NA; i++) {
+  const d = parseFloat(execSync(
+    `ffprobe -v error -show_entries format=duration \
+     -of default=noprint_wrappers=1:nokey=1 \
+     "assets/audio/s${i}.wav"`).toString().trim());
+  AUDIO.push(d);   <span class="text-neutral-500">// duração REAL, não estimada</span>
+}</code></pre>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4 mb-5">
+<div class="flex items-start space-x-3"><span class="text-blue-400 text-lg flex-shrink-0">📊</span><div>
+<div class="text-blue-400 font-semibold text-sm mb-1">Por qué medir en vez de estimar</div>
+<p class="text-neutral-300 text-sm">Una frase de "10 segundos" rara vez dura exactamente 10s. Medir el WAV real y derivar de ahí la duración de las escenas es lo que garantiza que la animación termine junto con la voz, sin ajustes manuales.</p>
+</div></div>
+</div>
+<div class="bg-primary/10 border border-primary/40 rounded-xl p-4">
+<div class="flex items-start space-x-3"><span class="text-primary text-lg flex-shrink-0">⚡</span><div>
+<div class="text-primary font-semibold text-sm mb-1">ffmpeg/ffprobe en Windows/git-bash</div>
+<p class="text-neutral-300 text-sm">En entornos git-bash, usa <code class="font-mono text-primary">ffmpeg -nostdin</code> en las llamadas para extraer frames — sin la flag, el proceso puede quedarse bloqueado leyendo la entrada interactiva estándar.</p>
+</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-4">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">4</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">⚙️ La composición: build-demo.mjs</h2>
+<p class="text-neutral-400 mt-1">El generador central: lee steps.json, mide los WAV y produce el <code class="text-purple-400 font-mono">index.html</code> con marco, cursor, resaltado, zoom y CTA listos.</p>
+</div>
+</div>
+<div class="relative pl-6 mb-6">
+<div class="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500/60 via-cyan-500/40 to-purple-500/20"></div>
+<div class="relative mb-6">
+<div class="absolute -left-5 top-1 w-3 h-3 rounded-full bg-purple-500 border-2 border-dark-800"></div>
+<div class="bg-dark-700 border border-purple-500/20 rounded-xl p-4">
+<div class="flex items-center space-x-2 mb-2"><code class="text-purple-400 font-mono text-sm font-semibold">1. lê steps.json</code></div>
+<p class="text-neutral-300 text-sm">Carga <code class="font-mono text-purple-300">viewport</code>, <code class="font-mono text-purple-300">window</code>, los pasos (shot + target + caption + narration) y la <code class="font-mono text-purple-300">ctaNarration</code>.</p>
+</div>
+</div>
+<div class="relative mb-6">
+<div class="absolute -left-5 top-1 w-3 h-3 rounded-full bg-cyan-500 border-2 border-dark-800"></div>
+<div class="bg-dark-700 border border-cyan-500/20 rounded-xl p-4">
+<div class="flex items-center space-x-2 mb-2"><code class="text-cyan-400 font-mono text-sm font-semibold">2. mede WAVs + calcula geometria</code></div>
+<p class="text-neutral-300 text-sm">Construye <code class="font-mono text-cyan-300">AUDIO[]</code> con ffprobe y mapea cada bbox del espacio de la captura de pantalla al canvas (<code class="font-mono text-cyan-300">mapBox</code>, <code class="font-mono text-cyan-300">center</code>).</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-5 top-1 w-3 h-3 rounded-full bg-purple-400 border-2 border-dark-800"></div>
+<div class="bg-dark-700 border border-purple-500/20 rounded-xl p-4">
+<div class="flex items-center space-x-2 mb-2"><code class="text-purple-400 font-mono text-sm font-semibold">3. escreve index.html (16:9)</code></div>
+<p class="text-neutral-300 text-sm">Escenas (1 por paso) + CTA, marco, cursor global, destacados, zoom y timeline GSAP: todo en un único HTML renderizable.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">un comando</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code>node build-demo.mjs     <span class="text-neutral-500"># -&gt; index.html (16:9), pronto para lint/render</span></code></pre>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="flex items-start space-x-3"><span class="text-red-400 text-lg flex-shrink-0">🚨</span><div>
+<div class="text-red-400 font-semibold text-sm mb-1">index.html se genera — no editar a mano</div>
+<p class="text-neutral-300 text-sm">Cualquier ajuste va en el <code class="font-mono text-red-300">steps.json</code> o en el <code class="font-mono text-red-300">build-demo.mjs</code>, después vuelve a ejecutarlo. Editar el HTML directamente se pierde en la siguiente compilación.</p>
+</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-5">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">5</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">🔗 Sincronizar audio ↔ animación mediante S[]</h2>
+<p class="text-neutral-400 mt-1">La timeline y los audios leen el mismo array de tiempos derivado de <code class="text-purple-400 font-mono">AUDIO[]</code> — sincronía por construcción.</p>
+</div>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">build-demo.mjs — cálculo de S[]</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code>const LEAD = <span class="text-purple-400">0.5</span>, TAIL = <span class="text-purple-400">0.7</span>, FADE = <span class="text-purple-400">0.4</span>;
+let t = 0;
+const S = AUDIO.map((a, i) =&gt; {
+  const dur = LEAD + a + TAIL;
+  const o = { i: i+1, start: t, dur,
+    audioStart: t + LEAD, audioDur: a, end: t + dur };
+  t += dur; return o;
+});</code></pre>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+<div class="bg-dark-700 rounded-lg p-3 text-center"><div class="text-purple-400 text-lg mb-1">▶️</div><div class="text-xs font-semibold text-neutral-300">inicio</div><div class="text-xs text-neutral-500 mt-0.5">inicio de la escena</div></div>
+<div class="bg-dark-700 rounded-lg p-3 text-center"><div class="text-purple-400 text-lg mb-1">⏳</div><div class="text-xs font-semibold text-neutral-300">dur</div><div class="text-xs text-neutral-500 mt-0.5">LEAD+audio+TAIL</div></div>
+<div class="bg-dark-700 rounded-lg p-3 text-center"><div class="text-cyan-400 text-lg mb-1">🔉</div><div class="text-xs font-semibold text-neutral-300">audioStart</div><div class="text-xs text-neutral-500 mt-0.5">inicio + LEAD</div></div>
+<div class="bg-dark-700 rounded-lg p-3 text-center"><div class="text-purple-400 text-lg mb-1">⏹️</div><div class="text-xs font-semibold text-neutral-300">end</div><div class="text-xs text-neutral-500 mt-0.5">inicio + dur</div></div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
+<div class="flex items-start space-x-3"><span class="text-blue-400 text-lg flex-shrink-0">📊</span><div>
+<div class="text-blue-400 font-semibold text-sm mb-1">Tracks alternados anti-solapamiento</div>
+<p class="text-neutral-300 text-sm">Las escenas y los captions quedan en tracks alternados (1/3 y 2/4): un track termina mientras el otro ya prepara el siguiente audio, lo que evita superposiciones en las transiciones con FADE.</p>
+</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-6">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">6</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">💬 Subtítulos en el pie de página</h2>
+<p class="text-neutral-400 mt-1">Cada paso tiene un <code class="text-purple-400 font-mono">caption</code> que se convierte en un subtítulo translúcido sincronizado con la escena.</p>
+</div>
+</div>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-5 mb-5">
+<div class="flex items-center space-x-2 mb-2"><span class="text-purple-400 text-lg">💡</span><span class="text-purple-400 font-semibold text-sm uppercase tracking-wide">Concepto principal</span></div>
+<p class="text-neutral-200 text-sm leading-relaxed">O <code class="text-purple-400 font-mono">caption</code> de cada paso (escrito en steps.json) se renderiza en el pie de página con Inter 600 sobre un fondo translúcido; aparece y desaparece junto con la escena, en una track alternada con respecto a las escenas.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4 mb-5">
+<div class="flex items-start space-x-3"><span class="text-blue-400 text-lg flex-shrink-0">📊</span><div>
+<div class="text-blue-400 font-semibold text-sm mb-1">Caption ≠ narración</div>
+<p class="text-neutral-300 text-sm">La narración es lo que dice la voz (puede incluir números escritos con palabras); el caption es el texto breve en pantalla. Ambos están en el mismo paso del steps.json, pero cumplen propósitos distintos: los feeds sin sonido muestran el caption.</p>
+</div></div>
+</div>
+<div class="bg-primary/10 border border-primary/40 rounded-xl p-4">
+<div class="flex items-start space-x-3"><span class="text-primary text-lg flex-shrink-0">⚡</span><div>
+<div class="text-primary font-semibold text-sm mb-1">Caption breve</div>
+<p class="text-neutral-300 text-sm">Mantén el caption en una sola frase. El texto largo en el pie compite con el marco y el resultado; el subtítulo refuerza la voz, no la sustituye.</p>
+</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden" id="topico-7">
+<div class="p-6 sm:p-8">
+<div class="flex items-start space-x-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0"><span class="text-purple-400 font-bold text-lg">7</span></div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-neutral-100">📣 La CTA final de INEMA.CLUB</h2>
+<p class="text-neutral-400 mt-1">La última escena es la llamada de marca: ya viene lista en la plantilla, con narración predeterminada.</p>
+</div>
+</div>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-5 mb-5">
+<div class="flex items-center space-x-2 mb-2"><span class="text-purple-400 text-lg">💡</span><span class="text-purple-400 font-semibold text-sm uppercase tracking-wide">Escena final estándar</span></div>
+<p class="text-neutral-200 text-sm leading-relaxed">"CONTINÚA EN" + <code class="text-purple-400 font-mono">INEMA.CLUB</code> (INEMA en crema, .CLUB ámbar con glow) + <code class="text-purple-400 font-mono">🌐 inema.club</code>. Narración predeterminada: <em>"Esto es contenido de INEMA punto CLUB. Accede a: inema punto club."</em> En la CTA, el cursor desaparece (<code class="text-purple-400 font-mono">opacity:0</code>).</p>
+</div>
+<div class="bg-dark-900 border border-dark-600 rounded-xl p-4 mb-5 overflow-x-auto">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-yellow-500 opacity-60"></div><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-60"></div>
+<span class="text-neutral-500 text-xs ml-2 font-mono">steps.json — ctaNarration</span>
+</div>
+<pre class="text-xs font-mono text-neutral-300 leading-relaxed"><code>"ctaNarration": "Isso é conteúdo do INEMA ponto CLUB. Acesse: inema ponto club."</code></pre>
+</div>
+<!-- RESUMO FINAL -->
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-4">🎯 Lo que aprendiste</h3>
+<ul class="space-y-2 text-sm text-neutral-300 mb-6">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-0.5">✓</span><span>Kokoro genera la narración en PT-BR de forma local y gratis, voz pf_dora --speed 0.98</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-0.5">✓</span><span>narration-template.sh extrae las narraciones de steps.json (pasos + CTA)</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-0.5">✓</span><span>build-demo.mjs mide los WAV con ffprobe: timing como fuente única</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-0.5">✓</span><span>S[] (start/dur/audioStart/end) sincroniza el audio y la animación</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-0.5">✓</span><span>Los captions y la CTA de INEMA.CLUB ya vienen listos</span></li>
+</ul>
+<p class="text-neutral-400 text-sm mb-4"><strong class="text-neutral-200">Próximo:</strong> Módulo 3.3 — montar el proyecto HyperFrames, validarlo con lint/inspect y renderizar el MP4 final.</p>
+<div class="flex flex-col sm:flex-row gap-3">
+<a class="flex-1 text-center px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-1.html">← Módulo 3.1: Marco, cursor y zoom</a>
+<a class="flex-1 text-center px-5 py-2.5 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="modulo-3-3.html">Módulo 3.3: Render en HyperFrames →</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+<div class="flex items-center space-x-3">
+<span class="text-2xl">🖱️</span>
+<div>
+<div class="font-bold text-neutral-200">Video demostrativo</div>
+<div class="text-xs text-neutral-500">Recorridos de apps con Claude Code</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 text-sm text-neutral-500">
+<a class="hover:text-purple-400 transition-colors" href="../../index.html">Inicio</a>
+<span>·</span>
+<a class="hover:text-purple-400 transition-colors" href="index.html">Pista 3</a>
+<span>·</span>
+<a class="text-sky-400 hover:text-sky-300 transition-colors" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+<p class="text-center text-xs text-neutral-500 mt-6">Contenido de INEMA.CLUB · Video demostrativo — Trilha 3: Composición &amp; Render · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    function updateThemeIcons() {
+      if (document.documentElement.classList.contains('dark')) { darkIcon.classList.remove('hidden'); lightIcon.classList.add('hidden'); }
+      else { darkIcon.classList.add('hidden'); lightIcon.classList.remove('hidden'); }
+    }
+    if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.remove('dark'); } else { document.documentElement.classList.add('dark'); }
+    updateThemeIcons();
+    themeToggle.addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      updateThemeIcons();
+    });
+  </script>
+</body>
+</html>

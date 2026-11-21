@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1.2 — Capturar primero, animar después | Video demostrativo · INEMA.CLUB</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-200 { color: #1f2937; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .text-emerald-300 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .border-emerald-500\/20 { border-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .text-yellow-300 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/10 { background-color: rgba(220,38,38,0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .text-blue-300 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-cyan-400 { color: #0891b2; }
+    html:not(.dark) .text-cyan-300 { color: #0891b2; }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    @keyframes m12-flow { 0% { stroke-dashoffset: 120; } 100% { stroke-dashoffset: 0; } }
+    @keyframes m12-pulse { 0%,100% { opacity:.4 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .m12-anim-flow { animation: m12-flow 2.5s linear infinite; }
+      .m12-anim-pulse { animation: m12-pulse 2.8s ease-in-out infinite; }
+      .m12-anim-pulse:nth-child(2) { animation-delay: .4s; }
+    }
+  </style>
+<link href="https://inematds.github.io/skill-video-demonstrativo/curso/trilha1/modulo-1-2.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/skill-video-demonstrativo/en/curso/trilha1/modulo-1-2.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/skill-video-demonstrativo/es/curso/trilha1/modulo-1-2.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-2.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/modulo-1-2.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-1-2.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🖱️</span><span class="font-bold text-lg hidden sm:inline">Demostrativo</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Captura</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Render</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-500">
+<a class="hover:text-emerald-400 transition-colors" href="../../index.html">Inicio</a>
+<span>/</span>
+<a class="hover:text-emerald-400 transition-colors" href="index.html">Pista 1 — Fundamentos</a>
+<span>/</span>
+<span class="text-emerald-400 font-medium">Módulo 1.2</span>
+</nav>
+</div>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-10 border-b border-dark-600 mt-4">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+<h1 class="text-2xl sm:text-3xl font-bold mb-4">🧠 Capturar primero, animar después</h1>
+<p class="text-lg text-neutral-400 max-w-xl">El principio que rige toda la skill. Cómo el render de HyperFrames es <strong>determinístico</strong> (sin red), nunca se carga el sitio en vivo en el video: se captura la pantalla real <strong>antes</strong> y se anima por encima. El viewport fijo de la captura se convierte en el espacio de coordenadas del cursor.</p>
+<div class="grid grid-cols-4 gap-3 mt-6">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Concepto</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+<!-- SVG FUTURISTA -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4">
+<svg aria-label="El principio: primero se captura un screenshot real de la app en un viewport fijo, de ahí se extrae el bounding box del elemento y solo después se anima el cursor apuntando a esa caja en el render determinista" class="w-full h-auto" role="img" viewbox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="m12-bg-grad" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color:#0e2018"></stop><stop offset="100%" style="stop-color:#0e1b26"></stop></lineargradient>
+<filter height="140%" id="m12-glow" width="140%" x="-20%" y="-20%"><fegaussianblur result="blur" stddeviation="3"></fegaussianblur><femerge><femergenode in="blur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+</defs>
+<rect fill="url(#m12-bg-grad)" height="240" rx="12" width="400"></rect>
+<g opacity="0.5" stroke="#1a3b2a" stroke-width="0.5">
+<line x1="0" x2="400" y1="80" y2="80"></line><line x1="0" x2="400" y1="160" y2="160"></line>
+<line x1="133" x2="133" y1="0" y2="240"></line><line x1="266" x2="266" y1="0" y2="240"></line>
+</g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="13" font-weight="800" text-anchor="middle" x="200" y="22">CAPTURAR → MEDIR → ANIMAR</text>
+<!-- Etapa 1: capturar -->
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle" x="67" y="44">① CAPTURA</text>
+<rect fill="#0b1a13" filter="url(#m12-glow)" height="80" rx="6" stroke="#34d399" stroke-width="1.5" width="90" x="22" y="56"></rect>
+<rect fill="#16271d" height="12" rx="6" width="90" x="22" y="56"></rect>
+<circle cx="30" cy="62" fill="#34d399" r="1.6"></circle><circle cx="35" cy="62" fill="#6ee7b7" opacity="0.5" r="1.6"></circle>
+<rect fill="#1f3b2c" height="7" rx="2" width="70" x="32" y="76"></rect>
+<rect fill="#16271d" height="6" rx="2" width="48" x="32" y="88"></rect>
+<rect fill="#0e2018" height="16" rx="3" stroke="#34d399" stroke-width="0.8" width="70" x="32" y="102"></rect>
+<text fill="#6ee7b7" font-family="Inter,sans-serif" font-size="6" text-anchor="middle" x="67" y="113">captura de pantalla real</text>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="6.5" text-anchor="middle" x="67" y="130">viewport 1280×800</text>
+<path class="m12-anim-flow" d="M112 96 L128 96" stroke="#34d399" stroke-dasharray="4,3" stroke-width="1.5"></path>
+<polygon fill="#34d399" points="128,93 134,96 128,99"></polygon>
+<!-- Etapa 2: medir box -->
+<text fill="#38bdf8" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle" x="200" y="44">② CUADRO DELIMITADOR</text>
+<rect fill="#0b1722" filter="url(#m12-glow)" height="80" rx="6" stroke="#38bdf8" stroke-width="1.5" width="90" x="155" y="56"></rect>
+<rect class="m12-anim-pulse" fill="none" height="24" rx="3" stroke="#38bdf8" stroke-dasharray="3,2" stroke-width="1.5" width="60" x="170" y="84"></rect>
+<line stroke="#38bdf8" stroke-width="0.8" x1="170" x2="170" y1="84" y2="76"></line>
+<line stroke="#38bdf8" stroke-width="0.8" x1="230" x2="230" y1="84" y2="76"></line>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="6" text-anchor="middle" x="200" y="74">x,y,w,h</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="6" text-anchor="middle" x="200" y="99">getBounding...</text>
+<text fill="#38bdf8" font-family="Inter,sans-serif" font-size="6.5" text-anchor="middle" x="200" y="124">viewport-relative</text>
+<path class="m12-anim-flow" d="M245 96 L261 96" stroke="#38bdf8" stroke-dasharray="4,3" stroke-width="1.5"></path>
+<polygon fill="#38bdf8" points="261,93 267,96 261,99"></polygon>
+<!-- Etapa 3: animar cursor -->
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle" x="333" y="44">③ CURSOR</text>
+<rect fill="#0b1a13" filter="url(#m12-glow)" height="80" rx="6" stroke="#34d399" stroke-width="1.5" width="90" x="288" y="56"></rect>
+<rect fill="#0e2018" height="22" rx="3" stroke="#34d399" stroke-width="0.8" width="56" x="300" y="84"></rect>
+<text fill="#6ee7b7" font-family="Inter,sans-serif" font-size="6" text-anchor="middle" x="328" y="98">objetivo</text>
+<path d="M328 94 L328 110 L332 106 L335 112 L338 110 L335 105 L340 105 Z" fill="#fff" stroke="#34d399" stroke-width="0.8"></path>
+<circle class="m12-anim-pulse" cx="328" cy="95" fill="none" r="9" stroke="#34d399" stroke-width="1"></circle>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="6.5" text-anchor="middle" x="333" y="126">apunta al recuadro · haz clic</text>
+<!-- caixa inferior -->
+<rect fill="#091a12" height="44" opacity="0.9" rx="6" stroke="#34d399" stroke-width="1" width="320" x="40" y="178"></rect>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle" x="200" y="194">⚙️ Render determinista — sin red durante el render</text>
+<text fill="#6ee7b7" font-family="Inter,sans-serif" font-size="7.5" text-anchor="middle" x="200" y="208">el mismo viewport y scroll garantizan la consistencia entre shot ↔ coordenada</text>
+</svg>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+<!-- TÓPICO 1 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-1">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">1</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">⚙️ Render determinista</h2>
+<p class="text-neutral-400 mt-2">HyperFrames renderiza el HTML en frames de forma determinista: con el mismo HTML y la misma timeline, el video sale idéntico. Para eso, no hay acceso a la red durante el renderizado.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
+<div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Concepto principal</div>
+<p class="text-neutral-200 font-medium">Determinístico significa que el render no depende de nada que pueda variar: no hace <code class="text-emerald-300">fetch</code>, no carga imágenes remotas ni consulta APIs durante el proceso. Cada frame es una función pura del HTML + tiempo.</p>
+<p class="text-neutral-400 text-sm mt-3">Es exactamente lo que garantiza que el video se pueda reproducir y que la animación coincida con el audio frame a frame.</p>
+</div>
+<div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4 flex gap-3">
+<span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
+<div>
+<div class="text-red-400 font-semibold text-sm mb-1">La red durante el render = inconsistencia</div>
+<p class="text-neutral-400 text-sm">Si un frame dependiera de una solicitud, el resultado cambiaría según la latencia, el estado del servidor o los datos del momento. El render perdería previsibilidad y se rompería la sincronía con la narración.</p>
+</div>
+</div>
+<div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Conceptos clave</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🔁</div><div class="text-xs font-semibold text-neutral-200">Reproducible</div><div class="text-xs text-neutral-500">Mismo resultado</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🚫</div><div class="text-xs font-semibold text-neutral-200">Sin red</div><div class="text-xs text-neutral-500">Ningún fetch</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🎞️</div><div class="text-xs font-semibold text-neutral-200">Cuadro por cuadro</div><div class="text-xs text-neutral-500">Tiempo controlado</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🔗</div><div class="text-xs font-semibold text-neutral-200">Audio sincronizado</div><div class="text-xs text-neutral-500">Sincronía exacta</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-2">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">2</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">🚫 Nunca el sitio en vivo</h2>
+<p class="text-neutral-400 mt-2">Como consecuencia directa del renderizado determinista, la app nunca se carga en vivo dentro del video. Nada de un iframe que apunte a la URL real durante el renderizado.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+<div class="text-emerald-400 font-semibold text-sm mb-3">✓ La forma correcta</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Capturas de pantalla reales guardadas en <code class="text-emerald-300 bg-dark-700 px-1 rounded text-xs">assets/shots/</code></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Imágenes locales referenciadas en el HTML del video</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Todo integrado antes de que comience el render</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Animación sobre la imagen estática</li>
+</ul>
+</div>
+<div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4">
+<div class="text-red-400 font-semibold text-sm mb-3">✗ Qué no hacer</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <code class="text-red-300 bg-dark-700 px-1 rounded text-xs">&lt;iframe src="https://app…"&gt;</code> en el video</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Cargar imágenes mediante una URL remota durante el renderizado</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Esperar a que la app responda durante el renderizado</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Depender de fuentes mediante CDN (usa las locales)</li>
+</ul>
+</div>
+</div>
+<div class="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-4 flex gap-3">
+<span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
+<div>
+<div class="text-emerald-400 font-semibold text-sm mb-1">El marco disimula que es una captura</div>
+<p class="text-neutral-400 text-sm">El screenshot estático se coloca dentro de un marco de navegador (barra + URL) y se le superponen un cursor y zoom. Para quien lo ve, parece una grabación de pantalla en vivo, pero es una imagen más animación.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-3">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">3</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">📸 Se capturan screenshots reales ANTES</h2>
+<p class="text-neutral-400 mt-2">La etapa que marca toda la diferencia ocurre antes del render: se navega por la app real con agent-browser y se toma una captura de pantalla por cada estado del recorrido.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-4">El orden del pipeline</div>
+<div class="relative pl-8 space-y-0">
+<div class="absolute left-3 top-2 bottom-2 w-0.5 bg-emerald-500/30"></div>
+<div class="relative pb-5">
+<div class="absolute -left-5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-dark-800 flex items-center justify-center"><span class="text-xs text-white font-bold">1</span></div>
+<div class="bg-dark-700/40 rounded-lg p-4 border border-dark-600">
+<div class="font-semibold text-emerald-400 text-sm">Abrir la app en un viewport fijo</div>
+<p class="text-neutral-400 text-sm mt-1"><code class="text-emerald-300">agent-browser set viewport 1280 800</code> y abrir la URL. El viewport se define una vez y se mantiene.</p>
+</div>
+</div>
+<div class="relative pb-5">
+<div class="absolute -left-5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-dark-800 flex items-center justify-center"><span class="text-xs text-white font-bold">2</span></div>
+<div class="bg-dark-700/40 rounded-lg p-4 border border-dark-600">
+<div class="font-semibold text-emerald-400 text-sm">Ejecutar la acción del paso</div>
+<p class="text-neutral-400 text-sm mt-1">Completar un campo, hacer clic en un botón, esperar un resultado: la acción que demuestra ese paso.</p>
+</div>
+</div>
+<div class="relative pb-5">
+<div class="absolute -left-5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-dark-800 flex items-center justify-center"><span class="text-xs text-white font-bold">3</span></div>
+<div class="bg-dark-700/40 rounded-lg p-4 border border-dark-600">
+<div class="font-semibold text-emerald-400 text-sm">Tomar 1 screenshot por estado</div>
+<p class="text-neutral-400 text-sm mt-1">Cada estado se convierte en un <code class="text-emerald-300">assets/shots/NN-id.png</code> — la base visual de ese paso.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-5 w-4 h-4 rounded-full bg-cyan-500 border-2 border-dark-800 flex items-center justify-center"><span class="text-xs text-white font-bold">4</span></div>
+<div class="bg-dark-700/40 rounded-lg p-4 border border-dark-600">
+<div class="font-semibold text-cyan-400 text-sm">Obtener el bounding box del objetivo</div>
+<p class="text-neutral-400 text-sm mt-1">Junto con el shot, se mide el cuadro real del elemento al que apuntará el cursor. Todo eso se convierte en <code class="text-cyan-300">steps.json</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-4 flex gap-3">
+<span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
+<div>
+<div class="text-emerald-400 font-semibold text-sm mb-1">Dos formas de capturar</div>
+<p class="text-neutral-400 text-sm">Automatizado (<code class="text-emerald-300">capture.mjs</code> + <code class="text-emerald-300">actions.json</code>) para apps predecibles, o control manual del agent-browser paso a paso cuando hay inicio de sesión o estados dinámicos. Los detalles están en la Ruta 2: Captura.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-4">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">4</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">🖼️ El viewport fijo se convierte en el espacio de coordenadas</h2>
+<p class="text-neutral-400 mt-2">Este es el concepto más importante del módulo: el viewport usado en la captura define el sistema de coordenadas en el que se posiciona todo después. Por eso es sagrado.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
+<div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Concepto principal</div>
+<p class="text-neutral-200 font-medium">Si la captura se hizo en un viewport de 1280×800, entonces la captura de pantalla mide 1280×800 y cualquier coordenada (x, y) se refiere a ese espacio. El cursor, el zoom y el marco trabajan todos en ese mismo sistema.</p>
+</div>
+<div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">La regla del viewport fijo</div>
+<div class="bg-dark-900 rounded-xl border border-dark-600 p-4 font-mono text-sm overflow-x-auto">
+<div class="text-neutral-500 text-xs mb-3"># el MISMO viewport para la captura y el recuadro</div>
+<div><span class="text-emerald-400">viewport</span> = <span class="text-cyan-300">1280 × 800</span> <span class="text-neutral-600"># definido una vez</span></div>
+<div><span class="text-emerald-400">captura de pantalla</span> → <span class="text-cyan-300">1280 × 800 px</span> <span class="text-neutral-600"># mismo tamaño</span></div>
+<div><span class="text-emerald-400">box.x, box.y</span> → <span class="text-cyan-300">relativos a 1280 × 800</span></div>
+<br/>
+<div class="text-neutral-500 text-xs"># ancho ≤ ~1280 para que quepa en 16:9</div>
+</div>
+</div>
+<div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4 flex gap-3">
+<span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
+<div>
+<div class="text-red-400 font-semibold text-sm mb-1">Cambiar el viewport rompe la alineación</div>
+<p class="text-neutral-400 text-sm">Si la captura de pantalla sale de un viewport y la bounding box de otro, las coordenadas no coinciden: el cursor cae en el lugar equivocado. Por eso el viewport debe ser idéntico en toda la captura.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-5">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">5</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">📦 Bounding boxes relativas al viewport</h2>
+<p class="text-neutral-400 mt-2">La posición de cada elemento objetivo no se estima «a ojo»: viene de <code class="text-emerald-400">getBoundingClientRect</code>, que devuelve coordenadas reales relativas al viewport.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Medir el cuadro real del objetivo</div>
+<div class="bg-dark-900 rounded-xl border border-dark-600 p-4 font-mono text-sm overflow-x-auto">
+<div class="text-neutral-500 text-xs mb-3"># eval en agent-browser obtiene el recuadro del elemento</div>
+<div><span class="text-emerald-400">const</span> r = el.<span class="text-cyan-300">getBoundingClientRect</span>();</div>
+<div><span class="text-emerald-400">return</span> {</div>
+<div class="ml-4"><span class="text-neutral-300">x: Math.round(r.x),</span></div>
+<div class="ml-4"><span class="text-neutral-300">y: Math.round(r.y),</span></div>
+<div class="ml-4"><span class="text-neutral-300">w: Math.round(r.width),</span></div>
+<div class="ml-4"><span class="text-neutral-300">h: Math.round(r.height)</span></div>
+<div>};  <span class="text-neutral-600"># coordenadas en el espacio de la captura de pantalla</span></div>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+<div class="text-emerald-400 font-semibold text-sm mb-3">✓ Por qué importa el cuadro real</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> El cursor llega al centro exacto del control</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Funciona incluso si el diseño es responsivo</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> El resaltado/zoom encuadra el elemento correcto</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Es lo que le da un aspecto profesional al video</li>
+</ul>
+</div>
+<div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4">
+<div class="text-red-400 font-semibold text-sm mb-3">✗ Calcular «a ojo» falla</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Las coordenadas estimadas no aciertan en el control</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Se rompen con cualquier cambio de diseño</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> No siguen el desplazamiento ni el tamaño del elemento</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Dan ese aspecto amateur de "casi listo"</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="bg-dark-800 rounded-2xl border border-emerald-500/30 overflow-hidden" id="topico-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">6</div>
+<div>
+<h2 class="text-xl font-bold flex items-center gap-2">🖱️ El cursor apunta a las cajas — consistencia entre shot↔coordenada</h2>
+<p class="text-neutral-400 mt-2">Con los screenshots y las cajas listos, el cursor se anima en la timeline principal apuntando al centro de cada bounding box. El secreto para acertar es la consistencia: mismo viewport, mismo scroll.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
+<div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Concepto principal</div>
+<p class="text-neutral-200 font-medium">El cursor es global (se anima en la timeline principal, no por escena), con el hotspot en la punta. La punta se desliza hasta el centro del cuadro del objetivo y, al hacer clic, activa pulse + ripple. Como el cuadro y el shot provienen del mismo viewport y scroll, la punta cae exactamente sobre lo que aparece en pantalla.</p>
+</div>
+<div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Conceptos clave</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🌐</div><div class="text-xs font-semibold text-neutral-200">Cursor global</div><div class="text-xs text-neutral-500">Timeline principal</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">📍</div><div class="text-xs font-semibold text-neutral-200">Hotspot al final</div><div class="text-xs text-neutral-500">Cae en el centro</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">💥</div><div class="text-xs font-semibold text-neutral-200">Pulse + ripple</div><div class="text-xs text-neutral-500">Al hacer clic</div></div>
+<div class="bg-dark-700/50 rounded-lg p-3 border border-dark-600 text-center"><div class="text-emerald-400 text-lg mb-1">🎯</div><div class="text-xs font-semibold text-neutral-200">Mismo desplazamiento</div><div class="text-xs text-neutral-500">El box coincide con el shot</div></div>
+</div>
+</div>
+<div class="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-4 flex gap-3">
+<span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
+<div>
+<div class="text-emerald-400 font-semibold text-sm mb-1">La consistencia entre captura↔coordenada es la regla de oro</div>
+<p class="text-neutral-400 text-sm">Siempre que la captura de pantalla de ese paso y el bounding box del objetivo provengan del mismo viewport y del mismo desplazamiento, el cursor estará alineado. Romper esa consistencia es la causa n.º 1 de que el cursor quede «fuera de lugar».</p>
+</div>
+</div>
+</div>
+</section>
+<!-- RESUMO DO MÓDULO -->
+<section class="rounded-2xl bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 text-emerald-400">📋 Resumen del Módulo 1.2</h2>
+<div class="grid sm:grid-cols-2 gap-6 mb-8">
+<div>
+<div class="text-sm font-semibold text-neutral-400 mb-3">Lo que aprendiste</div>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> El render de HyperFrames es determinista: no hay red</li>
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> Por eso nunca se carga el sitio en vivo en el video</li>
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> Se capturan screenshots reales ANTES, 1 por estado</li>
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> El viewport fijo se convierte en el espacio de coordenadas</li>
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> Los bounding boxes vienen de getBoundingClientRect (relativos al viewport)</li>
+<li class="flex items-start gap-2 text-sm text-neutral-200"><span class="text-emerald-400 mt-0.5">✓</span> El cursor apunta a los cuadros; la consistencia entre shot y coordenadas es la regla</li>
+</ul>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-emerald-500/20 p-5">
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Próximo módulo</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">1.3</div>
+<div>
+<div class="font-semibold text-neutral-200">🧰 El stack sin clave de API</div>
+<div class="text-sm text-neutral-400 mt-1">Las tres piezas locales que ponen en práctica el principio: agent-browser para capturar, HyperFrames para renderizar y Kokoro TTS para narrar — todo en la máquina.</div>
+</div>
+</div>
+<a class="mt-4 flex items-center justify-start gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors" href="modulo-1-3.html">Ir al módulo 1.3 →</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a la Ruta 1</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-3.html">Próximo módulo: 1.3 La stack →</a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-4">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p class="mb-1">Contenido de <a class="text-sky-400 hover:text-sky-300 font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p>Video demostrativo — Ruta 1: Fundamentos · Módulo 1.2 · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const di = document.getElementById('theme-toggle-dark-icon');
+    const li = document.getElementById('theme-toggle-light-icon');
+    const root = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { di.classList.remove('hidden'); root.classList.remove('dark'); } else { li.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      di.classList.toggle('hidden'); li.classList.toggle('hidden'); root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
