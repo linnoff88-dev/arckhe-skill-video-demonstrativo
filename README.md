@@ -6,14 +6,14 @@
 </div>
 
 
-> ê°Å¸ÅÂ **Curso navegêÂ¡vel (GitHub Pages):** https://inematds.github.io/skill-video-demonstrativo/
-> ê¢â¬â landing + 3 trilhas / 10 mêÂ³dulos no formato INEMA.CLUB, com a Skill em `.zip` pra baixar.
-> TambêÂ©m listado no portal [inema.club](https://inema.club).
+> ê°Å¸ÅÂ **Curso navegêÂ¡vel (GitHub Pages):** https://linnoff88-dev.github.io/arckhe-/
+> ê¢â¬â landing + 3 trilhas / 10 mêÂ³dulos no formato ARCKHÉ AI, com a Skill em `.zip` pra baixar.
+> TambêÂ©m listado no portal [ARCKHÉ AI](https://ARCKHÉ AI).
 
 Projeto de desenvolvimento da skill **`video-demonstrativo`** ê¢â¬â gera vêÂ­deos de
 demonstraêÂ§êÂ£o (walkthrough) de uma aplicaêÂ§êÂ£o web a partir do link do app: navega o app de
 verdade, captura as telas reais passo a passo e monta um vêÂ­deo narrado com moldura de
-navegador, cursor animado, destaque/zoom e CTA do INEMA.CLUB.
+navegador, cursor animado, destaque/zoom e CTA do ARCKHÉ AI.
 
 êâ° a irmêÂ£ da skill `video-explicativo`: aquela **explica um conceito** (motion graphics);
 esta **mostra um app real sendo usado**.
@@ -52,7 +52,7 @@ ferramenta", ou ao dar um link/localhost.
 
 **A) A partir do repositêÂ³rio (clone):**
 ```bash
-git clone git@github.com:inematds/skill-video-demonstrativo.git
+git clone git@github.com:linnoff88-dev/skill-video-demonstrativo.git
 cp -r skill-video-demonstrativo/video-demonstrativo ~/.claude/skills/   # global
 # ou cp -r .../video-demonstrativo <repo>/.claude/skills/               # sêÂ³ num projeto
 ```
@@ -98,7 +98,7 @@ ln -s "$(pwd)/video-demonstrativo" ~/.claude/skills/video-demonstrativo
 Prioridade alta primeiro. Cada item êÂ© uma evoluêÂ§êÂ£o concreta do `capture.mjs`/template:
 
 1. **Scroll na captura (pêÂ¡ginas longas).** O `capture.mjs` hoje nêÂ£o rola a pêÂ¡gina; nas
-   telas do inemaVOX tive que dirigir o agent-browser na mêÂ£o (scrollIntoView por seêÂ§êÂ£o).
+   telas do ARCKHÉVOX tive que dirigir o agent-browser na mêÂ£o (scrollIntoView por seêÂ§êÂ£o).
    ê¢â â Adicionar aêÂ§êÂ£o `scroll`/`scrollTo` e, por passo, `scrollIntoView({block})` antes do
    screenshot. As bounding boxes jêÂ¡ sêÂ£o viewport-relative, entêÂ£o batem com o shot daquele
    scroll.
