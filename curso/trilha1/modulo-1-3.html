@@ -118,7 +118,7 @@
 </div>
 <!-- SVG FUTURISTA -->
 <div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4">
-<svg aria-label="A stack local de três peças: agent-browser com Playwright captura, HyperFrames converte HTML em MP4, e Kokoro gera a narração — tudo roda na máquina sem chave de API" class="w-full h-auto" role="img" viewbox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+<svg aria-label="A stack local de três peças: agent-browser com Playwright captura, HyperFrames converte HTML em MP4, e Kokoro gera a narraçêo — tudo roda na máquina sem chave de API" class="w-full h-auto" role="img" viewbox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="m13-bg-grad" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color:#0e2018"></stop><stop offset="100%" style="stop-color:#0e1b26"></stop></lineargradient>
 <filter height="140%" id="m13-glow" width="140%" x="-20%" y="-20%"><fegaussianblur result="blur" stddeviation="3"></fegaussianblur><femerge><femergenode in="blur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
@@ -146,7 +146,7 @@
 <text fill="#34d399" font-family="Inter,sans-serif" font-size="18" text-anchor="middle" x="333" y="74">🗣️</text>
 <text fill="#34d399" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" text-anchor="middle" x="333" y="94">Kokoro</text>
 <text fill="#6ee7b7" font-family="Inter,sans-serif" font-size="7" text-anchor="middle" x="333" y="106">pf_dora</text>
-<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="7" text-anchor="middle" x="333" y="120">narração</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="7" text-anchor="middle" x="333" y="120">narraçêo</text>
 <!-- conectores -->
 <path class="m13-anim-flow" d="M110 89 L155 89" stroke="#34d399" stroke-dasharray="4,3" stroke-width="1.5"></path>
 <polygon fill="#34d399" points="155,86 161,89 155,92"></polygon>
@@ -178,12 +178,12 @@
 <div class="p-6 space-y-6">
 <div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
 <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Conceito Principal</div>
-<p class="text-neutral-200 font-medium">É o agent-browser que produz a matéria-prima do vídeo: <code class="text-emerald-300">assets/shots/*.png</code> (os estados) e o <code class="text-emerald-300">steps.json</code> (caixas + captions + narração). Sem essa etapa, não há o que animar.</p>
+<p class="text-neutral-200 font-medium">É o agent-browser que produz a matéria-prima do vídeo: <code class="text-emerald-300">assets/shots/*.png</code> (os estados) e o <code class="text-emerald-300">steps.json</code> (caixas + captions + narraçêo). Sem essa etapa, nêo há o que animar.</p>
 </div>
 <div>
-<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Dirigindo o agent-browser na mão</div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Dirigindo o agent-browser na mêo</div>
 <div class="bg-dark-900 rounded-xl border border-dark-600 p-4 font-mono text-sm overflow-x-auto">
-<div class="text-neutral-500 text-xs mb-3"># o padrão de captura manual</div>
+<div class="text-neutral-500 text-xs mb-3"># o padrêo de captura manual</div>
 <div><span class="text-emerald-400">agent-browser</span> set viewport <span class="text-cyan-300">1280 800</span></div>
 <div><span class="text-emerald-400">agent-browser</span> open <span class="text-cyan-300">http://localhost:8000/</span></div>
 <div><span class="text-emerald-400">agent-browser</span> snapshot -i      <span class="text-neutral-600"># refs @e1, @e2…</span></div>
@@ -195,7 +195,7 @@
 <span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
 <div>
 <div class="text-emerald-400 font-semibold text-sm mb-1">O app-alvo precisa estar no ar</div>
-<p class="text-neutral-400 text-sm">O agent-browser navega o app de verdade — então o <code class="text-emerald-300">localhost:8000</code> (ou a URL) precisa estar respondendo durante a captura. Os detalhes do <code class="text-emerald-300">capture.mjs</code> e do <code class="text-emerald-300">actions.json</code> ficam na Trilha 2.</p>
+<p class="text-neutral-400 text-sm">O agent-browser navega o app de verdade — entêo o <code class="text-emerald-300">localhost:8000</code> (ou a URL) precisa estar respondendo durante a captura. Os detalhes do <code class="text-emerald-300">capture.mjs</code> e do <code class="text-emerald-300">actions.json</code> ficam na Trilha 2.</p>
 </div>
 </div>
 </div>
@@ -257,17 +257,17 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">3</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">🗣️ Kokoro TTS local</h2>
-<p class="text-neutral-400 mt-2">A terceira peça é a narração. O Kokoro gera a fala em PT-BR localmente — um WAV por passo (mais a CTA), com a voz <code class="text-emerald-400">pf_dora</code> a <code class="text-emerald-400">--speed 0.98</code>.</p>
+<p class="text-neutral-400 mt-2">A terceira peça é a narraçêo. O Kokoro gera a fala em PT-BR localmente — um WAV por passo (mais a CTA), com a voz <code class="text-emerald-400">pf_dora</code> a <code class="text-emerald-400">--speed 0.98</code>.</p>
 </div>
 </div>
 </div>
 <div class="p-6 space-y-6">
 <div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
 <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Conceito Principal</div>
-<p class="text-neutral-200 font-medium">O Kokoro roda como modelo local (<code class="text-emerald-300">kokoro-onnx</code>). A primeira execução baixa ~340MB; depois, cada vídeo gera os WAVs sem nenhum serviço externo. O gerador mede esses WAVs com ffprobe para sincronizar o timing automaticamente.</p>
+<p class="text-neutral-200 font-medium">O Kokoro roda como modelo local (<code class="text-emerald-300">kokoro-onnx</code>). A primeira execuçêo baixa ~340MB; depois, cada vídeo gera os WAVs sem nenhum serviço externo. O gerador mede esses WAVs com ffprobe para sincronizar o timing automaticamente.</p>
 </div>
 <div>
-<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Boas práticas de narração</div>
+<div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Boas práticas de narraçêo</div>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
 <div class="text-emerald-400 font-semibold text-sm mb-3">✓ Expandir para a fala</div>
@@ -282,9 +282,9 @@
 <div class="text-red-400 font-semibold text-sm mb-3">✗ O que evitar</div>
 <ul class="space-y-2 text-sm text-neutral-300">
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Deixar números crus (lê errado)</li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Esperar atuação dramática (voz é boa, mas neutra)</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Esperar atuaçêo dramática (voz é boa, mas neutra)</li>
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Frases longas que estouram o passo</li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Inglês na narração (sempre PT-BR)</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Inglês na narraçêo (sempre PT-BR)</li>
 </ul>
 </div>
 </div>
@@ -292,8 +292,8 @@
 <div class="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 flex gap-3">
 <span class="text-blue-400 text-xl flex-shrink-0">🔎</span>
 <div>
-<div class="text-blue-400 font-semibold text-sm mb-1">Você não escuta — o usuário valida</div>
-<p class="text-neutral-400 text-sm">Como o áudio não dá para ouvir no fluxo de geração, o padrão é mostrar frames ao usuário e pedir que ele confirme a locução antes do render final.</p>
+<div class="text-blue-400 font-semibold text-sm mb-1">Você nêo escuta — o usuário valida</div>
+<p class="text-neutral-400 text-sm">Como o áudio nêo dá para ouvir no fluxo de geraçêo, o padrêo é mostrar frames ao usuário e pedir que ele confirme a locuçêo antes do render final.</p>
 </div>
 </div>
 </div>
@@ -305,7 +305,7 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">4</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">🔒 Sem chave de API</h2>
-<p class="text-neutral-400 mt-2">As três peças rodam localmente. Captura, render e narração não dependem de nenhum serviço pago nem de chave de API — o que significa custo zero por vídeo e nenhum dado saindo da máquina.</p>
+<p class="text-neutral-400 mt-2">As três peças rodam localmente. Captura, render e narraçêo nêo dependem de nenhum serviço pago nem de chave de API — o que significa custo zero por vídeo e nenhum dado saindo da máquina.</p>
 </div>
 </div>
 </div>
@@ -327,7 +327,7 @@
 <span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
 <div>
 <div class="text-emerald-400 font-semibold text-sm mb-1">A skill é auto-contida</div>
-<p class="text-neutral-400 text-sm">Ela traz as próprias fontes (Sora/Inter/JetBrains Mono em <code class="text-emerald-300">assets/fonts/</code>) e a house style. Não depende de nenhum outro projeto, repositório ou serviço para funcionar.</p>
+<p class="text-neutral-400 text-sm">Ela traz as próprias fontes (Sora/Inter/JetBrains Mono em <code class="text-emerald-300">assets/fonts/</code>) e a house style. Nêo depende de nenhum outro projeto, repositório ou serviço para funcionar.</p>
 </div>
 </div>
 </div>
@@ -353,14 +353,14 @@
 <div class="text-neutral-500 text-xs mb-2"># B) copiar a pasta (a skill vive em skills/ dentro do repo)</div>
 <div><span class="text-emerald-400">cp -r</span> video-demonstrativo/skills/video-demonstrativo <span class="text-cyan-300">~/.claude/skills/</span></div>
 <br/>
-<div class="text-neutral-500 text-xs mb-2"># C) symlink (dev — edição no repo reflete na hora)</div>
+<div class="text-neutral-500 text-xs mb-2"># C) symlink (dev — ediçêo no repo reflete na hora)</div>
 <div><span class="text-emerald-400">ln -s</span> "$(pwd)/video-demonstrativo/skills/video-demonstrativo" <span class="text-cyan-300">~/.claude/skills/video-demonstrativo</span></div>
 </div>
 </div>
 <div class="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4">
 <div class="text-blue-400 font-semibold text-sm mb-3">📊 Qual caminho escolher</div>
 <div class="grid sm:grid-cols-3 gap-3 text-sm">
-<div class="bg-dark-700/60 rounded-lg p-3"><div class="text-emerald-400 font-bold mb-1 text-xs">clonar</div><div class="text-neutral-400 text-xs">Quer a versão mais atual, direto da fonte.</div></div>
+<div class="bg-dark-700/60 rounded-lg p-3"><div class="text-emerald-400 font-bold mb-1 text-xs">clonar</div><div class="text-neutral-400 text-xs">Quer a versêo mais atual, direto da fonte.</div></div>
 <div class="bg-dark-700/60 rounded-lg p-3"><div class="text-emerald-400 font-bold mb-1 text-xs">copiar pasta</div><div class="text-neutral-400 text-xs">Clonou o repo e quer uma cópia estável instalada.</div></div>
 <div class="bg-dark-700/60 rounded-lg p-3"><div class="text-emerald-400 font-bold mb-1 text-xs">symlink</div><div class="text-neutral-400 text-xs">Vai editar a skill e quer ver as mudanças na hora.</div></div>
 </div>
@@ -368,8 +368,8 @@
 <div class="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-4 flex gap-3">
 <span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
 <div>
-<div class="text-emerald-400 font-semibold text-sm mb-1">Reinicie a sessão depois</div>
-<p class="text-neutral-400 text-sm">Em qualquer um dos três jeitos, reinicie a sessão para o Claude Code reconhecer a skill recém-instalada.</p>
+<div class="text-emerald-400 font-semibold text-sm mb-1">Reinicie a sessêo depois</div>
+<p class="text-neutral-400 text-sm">Em qualquer um dos três jeitos, reinicie a sessêo para o Claude Code reconhecer a skill recém-instalada.</p>
 </div>
 </div>
 </div>
@@ -414,7 +414,7 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">7</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">⚡ Como disparar a skill</h2>
-<p class="text-neutral-400 mt-2">Instalada, a skill dispara por frases-gatilho do dia a dia. Conhecer essas frases garante que o demonstrativo (e não o explicativo) entre em ação.</p>
+<p class="text-neutral-400 mt-2">Instalada, a skill dispara por frases-gatilho do dia a dia. Conhecer essas frases garante que o demonstrativo (e nêo o explicativo) entre em açêo.</p>
 </div>
 </div>
 </div>
@@ -425,7 +425,7 @@
 <div class="bg-dark-700/40 rounded-xl border border-dark-600 p-4">
 <div class="text-emerald-400 font-semibold text-sm mb-2">🗣️ Pedidos diretos</div>
 <ul class="space-y-1.5 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400">•</span> "vídeo de demonstração"</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400">•</span> "vídeo de demonstraçêo"</li>
 <li class="flex items-start gap-2"><span class="text-emerald-400">•</span> "demo do app / do sistema"</li>
 <li class="flex items-start gap-2"><span class="text-emerald-400">•</span> "walkthrough"</li>
 <li class="flex items-start gap-2"><span class="text-emerald-400">•</span> "mostrar passo a passo usando o app"</li>
@@ -445,7 +445,7 @@
 <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4 flex gap-3">
 <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
 <div>
-<div class="text-red-400 font-semibold text-sm mb-1">Cuidado para não acionar o explicativo</div>
+<div class="text-red-400 font-semibold text-sm mb-1">Cuidado para nêo acionar o explicativo</div>
 <p class="text-neutral-400 text-sm">"Faça um vídeo sobre X" (sem app) tende a acionar o <code class="text-red-300">video-explicativo</code>. Para o demonstrativo, deixe claro que há um app a mostrar — ou dê o link.</p>
 </div>
 </div>
@@ -453,7 +453,7 @@
 <span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
 <div>
 <div class="text-emerald-400 font-semibold text-sm mb-1">Dar o link é o gatilho mais forte</div>
-<p class="text-neutral-400 text-sm">Como a entrada da skill é o link do app, oferecer a URL logo de início já comunica a intenção e ativa o fluxo certo.</p>
+<p class="text-neutral-400 text-sm">Como a entrada da skill é o link do app, oferecer a URL logo de início já comunica a intençêo e ativa o fluxo certo.</p>
 </div>
 </div>
 </div>

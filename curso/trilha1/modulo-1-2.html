@@ -176,21 +176,21 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">1</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">⚙️ Render determinístico</h2>
-<p class="text-neutral-400 mt-2">O HyperFrames renderiza o HTML em frames de forma determinística: dado o mesmo HTML e a mesma timeline, o vídeo sai idêntico. Para isso, não há acesso à rede durante a renderização.</p>
+<p class="text-neutral-400 mt-2">O HyperFrames renderiza o HTML em frames de forma determinística: dado o mesmo HTML e a mesma timeline, o vídeo sai idêntico. Para isso, nêo há acesso à rede durante a renderizaçêo.</p>
 </div>
 </div>
 </div>
 <div class="p-6 space-y-6">
 <div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
 <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Conceito Principal</div>
-<p class="text-neutral-200 font-medium">Determinístico significa: o render não depende de nada que possa variar — não faz <code class="text-emerald-300">fetch</code>, não carrega imagens remotas, não consulta APIs no meio do caminho. Cada frame é função pura do HTML + tempo.</p>
-<p class="text-neutral-400 text-sm mt-3">É exatamente isso que garante que o vídeo seja reproduzível e que a animação bata com o áudio frame a frame.</p>
+<p class="text-neutral-200 font-medium">Determinístico significa: o render nêo depende de nada que possa variar — nêo faz <code class="text-emerald-300">fetch</code>, nêo carrega imagens remotas, nêo consulta APIs no meio do caminho. Cada frame é funçêo pura do HTML + tempo.</p>
+<p class="text-neutral-400 text-sm mt-3">É exatamente isso que garante que o vídeo seja reproduzível e que a animaçêo bata com o áudio frame a frame.</p>
 </div>
 <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4 flex gap-3">
 <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
 <div>
 <div class="text-red-400 font-semibold text-sm mb-1">Rede no render = inconsistência</div>
-<p class="text-neutral-400 text-sm">Se um frame dependesse de uma requisição, o resultado mudaria conforme a latência, o estado do servidor ou os dados do momento. O render perderia a previsibilidade — e a sincronia com a narração quebraria.</p>
+<p class="text-neutral-400 text-sm">Se um frame dependesse de uma requisiçêo, o resultado mudaria conforme a latência, o estado do servidor ou os dados do momento. O render perderia a previsibilidade — e a sincronia com a narraçêo quebraria.</p>
 </div>
 </div>
 <div>
@@ -211,7 +211,7 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">2</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">🚫 Nunca o site ao vivo</h2>
-<p class="text-neutral-400 mt-2">Como consequência direta do render determinístico, o app jamais é carregado ao vivo dentro do vídeo. Nada de iframe apontando para a URL real durante a renderização.</p>
+<p class="text-neutral-400 mt-2">Como consequência direta do render determinístico, o app jamais é carregado ao vivo dentro do vídeo. Nada de iframe apontando para a URL real durante a renderizaçêo.</p>
 </div>
 </div>
 </div>
@@ -223,15 +223,15 @@
 <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Screenshots reais salvos em <code class="text-emerald-300 bg-dark-700 px-1 rounded text-xs">assets/shots/</code></li>
 <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Imagens locais referenciadas no HTML do vídeo</li>
 <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Tudo embutido antes do render começar</li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Animação por cima da imagem estática</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Animaçêo por cima da imagem estática</li>
 </ul>
 </div>
 <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-4">
-<div class="text-red-400 font-semibold text-sm mb-3">✗ O que não fazer</div>
+<div class="text-red-400 font-semibold text-sm mb-3">✗ O que nêo fazer</div>
 <ul class="space-y-2 text-sm text-neutral-300">
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> <code class="text-red-300 bg-dark-700 px-1 rounded text-xs">&lt;iframe src="https://app…"&gt;</code> no vídeo</li>
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Carregar imagens via URL remota no render</li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Esperar o app responder durante a renderização</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Esperar o app responder durante a renderizaçêo</li>
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Depender de fontes via CDN (use as locais)</li>
 </ul>
 </div>
@@ -240,7 +240,7 @@
 <span class="text-emerald-400 text-xl flex-shrink-0">💡</span>
 <div>
 <div class="text-emerald-400 font-semibold text-sm mb-1">A moldura disfarça que é print</div>
-<p class="text-neutral-400 text-sm">O screenshot estático entra dentro de uma moldura de navegador (barra + URL) e ganha cursor + zoom por cima. Para quem assiste, parece uma gravação de tela ao vivo — mas é imagem mais animação.</p>
+<p class="text-neutral-400 text-sm">O screenshot estático entra dentro de uma moldura de navegador (barra + URL) e ganha cursor + zoom por cima. Para quem assiste, parece uma gravaçêo de tela ao vivo — mas é imagem mais animaçêo.</p>
 </div>
 </div>
 </div>
@@ -271,8 +271,8 @@
 <div class="relative pb-5">
 <div class="absolute -left-5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-dark-800 flex items-center justify-center"><span class="text-xs text-white font-bold">2</span></div>
 <div class="bg-dark-700/40 rounded-lg p-4 border border-dark-600">
-<div class="font-semibold text-emerald-400 text-sm">Executar a ação do passo</div>
-<p class="text-neutral-400 text-sm mt-1">Preencher um campo, clicar num botão, esperar um resultado — a ação que aquele passo demonstra.</p>
+<div class="font-semibold text-emerald-400 text-sm">Executar a açêo do passo</div>
+<p class="text-neutral-400 text-sm mt-1">Preencher um campo, clicar num botêo, esperar um resultado — a açêo que aquele passo demonstra.</p>
 </div>
 </div>
 <div class="relative pb-5">
@@ -314,7 +314,7 @@
 <div class="p-6 space-y-6">
 <div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
 <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Conceito Principal</div>
-<p class="text-neutral-200 font-medium">Se a captura foi feita num viewport de 1280×800, então o screenshot tem 1280×800 e qualquer coordenada (x, y) refere-se a esse espaço. O cursor, o zoom e a moldura trabalham todos nesse mesmo sistema.</p>
+<p class="text-neutral-200 font-medium">Se a captura foi feita num viewport de 1280×800, entêo o screenshot tem 1280×800 e qualquer coordenada (x, y) refere-se a esse espaço. O cursor, o zoom e a moldura trabalham todos nesse mesmo sistema.</p>
 </div>
 <div>
 <div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">A regra do viewport fixo</div>
@@ -331,7 +331,7 @@
 <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
 <div>
 <div class="text-red-400 font-semibold text-sm mb-1">Mudar o viewport quebra o alinhamento</div>
-<p class="text-neutral-400 text-sm">Se o screenshot sai de um viewport e a bounding box de outro, as coordenadas não batem: o cursor cai no lugar errado. Por isso o viewport tem que ser idêntico em toda a captura.</p>
+<p class="text-neutral-400 text-sm">Se o screenshot sai de um viewport e a bounding box de outro, as coordenadas nêo batem: o cursor cai no lugar errado. Por isso o viewport tem que ser idêntico em toda a captura.</p>
 </div>
 </div>
 </div>
@@ -343,7 +343,7 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">5</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">📦 Bounding boxes viewport-relative</h2>
-<p class="text-neutral-400 mt-2">A posição de cada elemento-alvo não é estimada "no olho": vem de <code class="text-emerald-400">getBoundingClientRect</code>, que devolve coordenadas reais relativas ao viewport.</p>
+<p class="text-neutral-400 mt-2">A posiçêo de cada elemento-alvo nêo é estimada "no olho": vem de <code class="text-emerald-400">getBoundingClientRect</code>, que devolve coordenadas reais relativas ao viewport.</p>
 </div>
 </div>
 </div>
@@ -376,8 +376,8 @@
 <ul class="space-y-2 text-sm text-neutral-300">
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Coordenadas chutadas erram o controle</li>
 <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Quebram a qualquer mudança de layout</li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Não acompanham scroll ou tamanho do elemento</li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Dão aquele aspecto amador de "quase lá"</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Nêo acompanham scroll ou tamanho do elemento</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Dêo aquele aspecto amador de "quase lá"</li>
 </ul>
 </div>
 </div>
@@ -390,14 +390,14 @@
 <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-lg">6</div>
 <div>
 <h2 class="text-xl font-bold flex items-center gap-2">🖱️ O cursor mira as boxes — consistência shot↔coordenada</h2>
-<p class="text-neutral-400 mt-2">Com os screenshots e as caixas em mãos, o cursor anima na timeline principal mirando o centro de cada bounding box. O segredo de acertar é a consistência: mesmo viewport, mesmo scroll.</p>
+<p class="text-neutral-400 mt-2">Com os screenshots e as caixas em mêos, o cursor anima na timeline principal mirando o centro de cada bounding box. O segredo de acertar é a consistência: mesmo viewport, mesmo scroll.</p>
 </div>
 </div>
 </div>
 <div class="p-6 space-y-6">
 <div class="rounded-xl bg-gradient-to-br from-emerald-900/30 to-dark-700/50 border border-emerald-500/30 p-5">
 <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-2">Conceito Principal</div>
-<p class="text-neutral-200 font-medium">O cursor é global (animado na timeline principal, não por cena), com o hotspot na ponta. A ponta desliza até o centro da box do alvo e, no clique, dispara pulse + ripple. Como a box e o shot vêm do mesmo viewport e scroll, a ponta cai exatamente sobre o que aparece na tela.</p>
+<p class="text-neutral-200 font-medium">O cursor é global (animado na timeline principal, nêo por cena), com o hotspot na ponta. A ponta desliza até o centro da box do alvo e, no clique, dispara pulse + ripple. Como a box e o shot vêm do mesmo viewport e scroll, a ponta cai exatamente sobre o que aparece na tela.</p>
 </div>
 <div>
 <div class="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Conceitos-chave</div>
